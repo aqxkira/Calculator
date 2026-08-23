@@ -1,0 +1,102 @@
+/* Делаем красивый фон для всей страницы и центрируем калькулятор */
+body {
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+/* Корпус калькулятора */
+.Calculator {
+  background-color: #22252d;
+  padding: 20px;
+  border-radius: 20px; /* Закругленные углы */
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2); /* Тень */
+  width: 320px;
+  
+  /* Включаем CSS Grid, чтобы расставить кнопки в 4 колонки */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px; /* Расстояние между кнопками */
+}
+
+/* Верхний экран (история) */
+.altscreen {
+  grid-column: span 4;
+  background-color: #292d36;
+  color: rgb(130, 129, 129);
+  font-size: 1.2rem; /* Уменьшили шрифт, чтобы он не спорил с главным числом */
+  text-align: right;
+  
+  /* ХИТРОСТЬ С ОТСТУПАМИ И УГЛАМИ */
+  padding: 15px 20px 5px 20px; /* Отступы: верх, право, низ (маленький), лево */
+  border-radius: 10px 10px 0 0; /* Закругляем ТОЛЬКО ВЕРХНИЕ углы */
+  
+  min-height: 25px; /* Сделали поменьше */
+  overflow-wrap: break-word; 
+}
+
+/* Главный экран (текущий ввод) */
+.screen {
+  grid-column: span 4;
+  background-color: #292d36;
+  color: white;
+  font-size: 3rem;
+  text-align: right;
+  
+  /* ХИТРОСТЬ С ОТСТУПАМИ И УГЛАМИ */
+  padding: 0px 20px 20px 20px; /* Сверху убираем отступ (0px), чтобы текст прижался к верхнему экрану */
+  border-radius: 0 0 10px 10px; /* Закругляем ТОЛЬКО НИЖНИЕ углы */
+  margin-bottom: 10px;
+  
+  min-height: 50px;
+  overflow-wrap: break-word; 
+}
+
+/* Все кнопки */
+.Calculator button {
+  background-color: #272b33;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  padding: 20px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s; /* Плавность при наведении */
+}
+
+/* Цвет кнопки при наведении мышки */м
+.Calculator button:hover {
+  background-color: #3a3f4b;
+}
+
+/* Анимация физического нажатия (кнопка слегка уменьшается) */
+.Calculator button:active {
+  transform: scale(0.95);
+}
+
+/* Делаем последнюю кнопку (=) широкой и цветной */
+.Calculator button:last-child {
+  grid-column: span 2; /* Занимает 2 колонки из 4 */
+  background-color: #eb6666;
+}
+.Calculator button:last-child:hover {
+  background-color: #fc7474;
+}
+
+/* Правила внутри этого блока сработают только если ширина экрана 400px или меньше */
+@media (max-width: 400px) {
+  body {
+    padding: 0; /* Убираем отступы сверху и сбоку */
+  }
+  
+  .Calculator {
+    max-width: 100%; /* Разрешаем растянуться на весь телефон */
+    height: 100vh;   /* Занимаем 100% высоты экрана */
+    border-radius: 0; /* Убираем закругленные углы */
+    box-shadow: none; /* Убираем тень */
+    align-content: end; /* Прижимаем кнопки к низу экрана */
+  }
+}
