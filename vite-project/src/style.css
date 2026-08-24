@@ -28,7 +28,7 @@ body {
 /* Верхний экран (история) */
 .altscreen {
   grid-column: span 4;
-  background-color: #292d36;
+  background-color: #22252d;
   color: rgb(130, 129, 129);
   font-size: 1.2rem; 
   text-align: right;
@@ -43,7 +43,7 @@ body {
 
 .screen {
   grid-column: span 4;
-  background-color: #292d36;
+  background-color: #22252d;
   color: white;
   font-size: 3rem;
   text-align: right;
