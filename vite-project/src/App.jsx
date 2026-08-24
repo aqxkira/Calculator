@@ -22,7 +22,7 @@ const handleClear = () =>{
 
 const handleNumberClick = (number) => {
   
-  if (currentInput === '.' ){
+  if (currentInput === '.' || operation){
     return
   }
 
