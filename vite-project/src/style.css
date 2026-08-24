@@ -93,9 +93,15 @@ body {
 
 /* Правила внутри этого блока сработают только если ширина экрана 400px или меньше */
 @media (max-width: 440px) {
-  body {
-    padding: 0; 
-  }
+  html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh; /* Точная высота экрана на мобильных с учетом выезжающей панели браузера */
+  overflow: hidden; /* Запрещает любой скролл страницы */
+  overscroll-behavior: none; /* Убирает "резиновый" отскок и обновление по тягу вниз (pull-to-refresh) */
+}
   
     .screen::-webkit-scrollbar,
 .altscreen::-webkit-scrollbar {
